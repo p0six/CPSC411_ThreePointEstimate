@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CPSC411_ThreePointEstimate</string>
+    <string name="optimisticString">Optimistic</string>
+    <string name="nominalString">Nominal</string>
+    <string name="pessimisticString">Pessimistic</string>
+    <string name="calculateString">Calculate</string>
+    <string name="meanString">Mean</string>
+    <string name="standardDeviationString">S.D.</string>
+    <string name="requiredInputString">Required Input Missing</string>
+    <string name="howManyDaysString">How Many Days to Finish?</string>
+</resources>

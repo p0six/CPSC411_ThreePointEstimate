@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.awwsheezy.cpsc411_threepointestimate.MainActivity">
+
+    <TextView
+        android:id="@+id/meanTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:textSize="30sp"
+        app:layout_constraintRight_toRightOf="@+id/meanTextLabel"
+        app:layout_constraintTop_toBottomOf="@+id/calculateButton" />
+
+    <EditText
+        android:id="@+id/optimisticEditText"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/standardDeviationTextView"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@+id/meanTextView"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="@+id/optimisticTextView"
+        app:layout_constraintTop_toBottomOf="@+id/howManyDaysLabel" />
+
+    <EditText
+        android:id="@+id/nominalEditText"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/optimisticEditText"
+        android:layout_alignLeft="@+id/optimisticEditText"
+        android:layout_alignRight="@+id/optimisticEditText"
+        android:layout_alignStart="@+id/optimisticEditText"
+        android:layout_below="@+id/optimisticEditText"
+        android:layout_marginStart="65dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="-1dp"
+        app:layout_constraintRight_toRightOf="@+id/nominalTextView"
+        app:layout_constraintTop_toBottomOf="@+id/howManyDaysLabel" />
+
+    <EditText
+        android:id="@+id/pessimisticEditText"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/nominalEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/nominalEditText"
+        android:layout_below="@+id/nominalEditText"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="asdfasdf"
+        android:textSize="14sp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="@+id/pessimisticTextView"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/howManyDaysLabel" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculateString"
+        android:layout_below="@+id/pessimisticEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/nominalTextView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.514" />
+
+    <TextView
+        android:id="@+id/standardDeviationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/meanTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="32dp"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/meanTextView"
+        app:layout_constraintRight_toRightOf="@+id/standardDeviationLabel" />
+
+    <TextView
+        android:id="@+id/optimisticTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/optimisticEditText"
+        android:layout_alignBottom="@+id/optimisticEditText"
+        android:layout_alignLeft="@+id/standardDeviationTextView"
+        android:layout_alignStart="@+id/standardDeviationTextView"
+        android:text="@string/optimisticString"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/optimisticEditText" />
+
+    <TextView
+        android:id="@+id/nominalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/optimisticTextView"
+        android:layout_alignStart="@+id/optimisticTextView"
+        android:layout_alignTop="@+id/nominalEditText"
+        android:text="@string/nominalString"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/nominalEditText"
+        app:layout_constraintLeft_toRightOf="@+id/optimisticTextView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintRight_toLeftOf="@+id/pessimisticTextView"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.524" />
+
+    <TextView
+        android:id="@+id/pessimisticTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nominalTextView"
+        android:layout_alignStart="@+id/nominalTextView"
+        android:layout_alignTop="@+id/pessimisticEditText"
+        android:text="@string/pessimisticString"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@+id/pessimisticEditText"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/meanTextLabel"
+        android:layout_width="35dp"
+        android:layout_height="15dp"
+        android:text="@string/meanString"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@+id/meanTextView"
+        android:layout_marginLeft="64dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/standardDeviationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/standardDeviationString"
+        app:layout_constraintBaseline_toBaselineOf="@+id/meanTextLabel"
+        android:layout_marginRight="64dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/howManyDaysLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text="@string/howManyDaysString"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp" />
+
+</android.support.constraint.ConstraintLayout>
