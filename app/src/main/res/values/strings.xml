@@ -8,4 +8,7 @@
     <string name="standardDeviationString">S.D.</string>
     <string name="requiredInputString">Required Input Missing</string>
     <string name="howManyDaysString">How Many Days to Finish?</string>
+    <string name="resultString">It should take about </string>
+    <string name="plusOrMinusString">" ± "</string>
+    <string name="daysString"> day(s) to complete.</string>
 </resources>

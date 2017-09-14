@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     float pessimisticValue, optimisticValue, nominalValue;
     Button calculateButton;
     EditText pessimisticEditText, optimisticEditText, nominalEditText;
-    TextView meanTextView, standardDeviationTextView;
-    String optimisticString, nominalString, pessimisticString, meanString, standardDeviationString;
+    TextView meanTextView, standardDeviationTextView, resultTextView;
+    String optimisticString, nominalString, pessimisticString, meanString, standardDeviationString, resultString;
     private static final String TAG = "EstimateActivity";
 
     // We'll use this to restrict our Mean and Standard Deviation to one decimal.
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculateButton = (Button) findViewById(R.id.calculateButton);
         meanTextView = (TextView) findViewById(R.id.meanTextView);
         standardDeviationTextView = (TextView) findViewById(R.id.standardDeviationTextView);
+        resultTextView = (TextView) findViewById(R.id.resultTextView);
 
         // Input Restricted by setting "inputType="numberDecimal" in layout
         optimisticEditText = (EditText) findViewById(R.id.optimisticEditText);
@@ -54,13 +55,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             pessimisticString = savedInstanceState.getString("pessimisticString");
             meanString = savedInstanceState.getString("meanString");
             standardDeviationString = savedInstanceState.getString("standardDeviationString");
+            resultString = savedInstanceState.getString("resultString");
             Log.d(TAG, "getString() returned optimisticString = " + optimisticString) ;
             Log.d(TAG, "getString() returned nominalString = " + nominalString) ;
             Log.d(TAG, "getString() returned pessimisticString = " + pessimisticString) ;
+            Log.d(TAG, "getString() returned meanString = " + meanString) ;
+            Log.d(TAG, "getString() returned standardDeviationString = " + standardDeviationString) ;
+            Log.d(TAG, "getString() returned resultString = " + resultString) ;
         } else {
             optimisticString = "";
             nominalString = "";
             pessimisticString = "";
+            meanString = "";
+            standardDeviationString = "";
+            resultString = "";
             Log.d(TAG, "savedInstanceState was null");
         }
 
@@ -75,11 +83,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         outState.putString("pessimisticString", pessimisticString);
         outState.putString("meanString", meanString);
         outState.putString("standardDeviationString", standardDeviationString);
+        outState.putString("resultString", resultString);
         Log.d(TAG, "Saved instance state optimisticString =  " + optimisticString);
         Log.d(TAG, "Saved instance state nominalString =  " + nominalString);
         Log.d(TAG, "Saved instance state pessimisticString =  " + pessimisticString);
         Log.d(TAG, "Saved instance state meanString =  " + meanString);
         Log.d(TAG, "Saved instance state standardDeviationString =  " + standardDeviationString);
+        Log.d(TAG, "Saved instance state resultString =  " + resultString);
     }
 
     private void updateTextView() {
@@ -88,6 +98,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pessimisticEditText.setText(pessimisticString);
         meanTextView.setText(meanString);
         standardDeviationTextView.setText(standardDeviationString);
+        if (meanString.equals("") && standardDeviationString.equals("")) {
+            resultString = "";
+            resultTextView.setText(resultString);
+        } else {
+            resultString = getResources().getString(R.string.resultString);
+            resultString += " ";
+            resultString += meanString;
+            resultString += getResources().getString(R.string.plusOrMinusString);
+            resultString += standardDeviationString;
+            resultString += " ";
+            resultString += getResources().getString(R.string.daysString);
+            resultTextView.setText(resultString);
+        }
     }
 
     float calculateMean(float o, float n, float p) {
@@ -114,8 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     nominalValue = Float.parseFloat(nominalString);
                     meanString = String.valueOf(floatFormat.format(calculateMean(optimisticValue, nominalValue, pessimisticValue)));
                     standardDeviationString = String.valueOf(floatFormat.format(calculateStandardDeviation(optimisticValue, nominalValue, pessimisticValue)));
-                    meanTextView.setText(meanString);
-                    standardDeviationTextView.setText(standardDeviationString);
+                    updateTextView();
                 }
                 break;
             default:
