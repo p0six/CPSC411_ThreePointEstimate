@@ -35,15 +35,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Pull in our widgets (EditText widget set to 'numberDecimal')
+        optimisticEditText = (EditText) findViewById(R.id.optimisticEditText);
+        nominalEditText = (EditText) findViewById(R.id.nominalEditText);
+        pessimisticEditText = (EditText) findViewById(R.id.pessimisticEditText);
         calculateButton = (Button) findViewById(R.id.calculateButton);
         meanTextView = (TextView) findViewById(R.id.meanTextView);
         standardDeviationTextView = (TextView) findViewById(R.id.standardDeviationTextView);
         resultTextView = (TextView) findViewById(R.id.resultTextView);
-
-        // Input Restricted by setting "inputType="numberDecimal" in layout
-        optimisticEditText = (EditText) findViewById(R.id.optimisticEditText);
-        nominalEditText = (EditText) findViewById(R.id.nominalEditText);
-        pessimisticEditText = (EditText) findViewById(R.id.pessimisticEditText);
 
         // Activate our Listener
         calculateButton.setOnClickListener(this);
