@@ -1,16 +1,25 @@
 package com.awwsheezy.cpsc411_threepointestimate;
 
+/*
+    Author: Michael Romero
+    Date: September 14, 2017
+    Course: CPSC 411, Mobile Application Development
+    Professor: Kenytt Avery
+    Description: This application provides the user with a "three-point-estimate" which he/she
+    may use to provide a project manager with a somewhat realistic expectation of when a particular
+    task will be finished.
+ */
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements TextView.OnEditorActionListener, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     float pessimisticValue, optimisticValue, nominalValue;
     Button calculateButton;
     EditText pessimisticEditText, optimisticEditText, nominalEditText;
@@ -79,11 +88,6 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         pessimisticEditText.setText(pessimisticString);
         meanTextView.setText(meanString);
         standardDeviationTextView.setText(standardDeviationString);
-    }
-
-    @Override
-    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) { // Unused thus far..
-        return false;
     }
 
     float calculateMean(float o, float n, float p) {
