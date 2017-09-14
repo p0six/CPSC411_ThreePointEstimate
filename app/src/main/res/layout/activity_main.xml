@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.awwsheezy.cpsc411_threepointestimate.MainActivity">
+    tools:context="com.awwsheezy.threepointestimate.MainActivity">
 
     <TextView
         android:id="@+id/meanTextView"

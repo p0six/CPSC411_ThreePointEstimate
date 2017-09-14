@@ -1,4 +1,4 @@
-package com.awwsheezy.cpsc411_threepointestimate;
+package com.awwsheezy.threepointestimate;
 
 /*
     Author: Michael Romero

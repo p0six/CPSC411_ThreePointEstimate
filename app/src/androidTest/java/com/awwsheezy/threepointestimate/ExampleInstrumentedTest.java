@@ -1,4 +1,4 @@
-package com.awwsheezy.cpsc411_threepointestimate;
+package com.awwsheezy.threepointestimate;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
