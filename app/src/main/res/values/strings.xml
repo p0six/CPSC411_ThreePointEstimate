@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CPSC411_ThreePointEstimate</string>
+    <string name="app_name">Three Point Estimator</string>
     <string name="optimisticString">Optimistic</string>
     <string name="nominalString">Nominal</string>
     <string name="pessimisticString">Pessimistic</string>
